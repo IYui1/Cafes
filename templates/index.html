@@ -1,0 +1,30 @@
+{% include "header.html" %}
+
+    
+<body>
+    <div class="container">
+        <h1>Cafes</h1>
+        <div class="row">
+            {% for cafe in cafes %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{{ cafe.img_url }}" class="card-img-top" alt="{{ cafe.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ cafe.name }}</h5>
+                            <p class="card-text">Location: {{ cafe.location }}</p>
+                            <p class="card-text">Seats: {{ cafe.seats }}</p>
+                            <p class="card-text">Coffee Price: {{ cafe.coffee_price }}</p>
+                            <a href="{{ cafe.map_url }}" class="btn btn-primary" target="_blank">View on Map</a>
+                            <a href="{{url_for('delete',id= cafe.id)}}" class="btn btn-danger">Delete</a>
+
+                            
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <p>No cafes found.</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

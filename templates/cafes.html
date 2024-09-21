@@ -1,0 +1,11 @@
+{% from 'bootstrap5/form.html' import render_form %}
+{% block content %}
+    {% include "header.html" %}
+    
+    <div class="container mt-4">
+        <h1>Add a New Cafe</h1>
+        <form method="POST" action="{{ url_for('add') }}">
+            {{ render_form(new_post) }}
+        </form>
+    </div>
+{% endblock %}
